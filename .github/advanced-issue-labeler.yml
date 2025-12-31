@@ -1,0 +1,24 @@
+policy:
+  - section:
+      - id: [category]
+        block-list: []
+        label:
+          - name: "style"
+            keys: ["Aesthetic/UI Bug (Something isn't looking quite right)"]
+          - name: "functional"
+            keys: ["Functional Bug (Something isn't working as expected)"]
+          - name: "documentation"
+            keys: ["Documentation Bug (Something isn't clear or correct in the documentation)"]
+          - name: "security"
+            keys: ["Security Bug (Something is broken that could lead to a security vulnerability)"]
+          - name: "performance"
+            keys: ["Performance Bug (Something is slowing down or not working as expected)"]
+          - name: "other"
+            keys: ["Other Bug (Something that doesn't fall under the above)"]
+      - id: [ os ]
+        block-list: []
+        label:
+          - name: "windows"
+            keys: ["Windows"]
+          - name: "linux"
+            keys: ["Linux"]

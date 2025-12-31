@@ -1,21 +1,39 @@
 name: "Issue Labeler"
 on:
   issues:
-    types: [ opened, edited ]
+    types: [ opened ]
 
 permissions:
-  issues: write
   contents: read
 
 jobs:
-  triage:
+  label-component:
     runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
     steps:
-      - uses: github/issue-labeler@v3.4
+      - uses: actions/checkout@v3
+
+      - name: Parse issue form
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
         with:
-          configuration-path: .github/labeler.yml
-          not-before: 2026-01-01T00:00:00Z
-          enable-versioned-regex: 0
-          include-title: 1
-          include-body: 1
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          template-path: .github/ISSUE_TEMPLATE/BUG-REPORT.yml
+
+      - name: Set labels based on category
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v2
+        with:
+          issue-form: ${{ steps.issue-parser.outputs.jsonString }}
+          section: category
+          block-list: |
+            Other Bug (Something that doesn't fall under the above)
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Label issue based on operating system
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v2
+        with:
+          issue-form: ${{ steps.issue-parser.outputs.jsonString }}
+          section: os
+          token: ${{ secrets.GITHUB_TOKEN }}

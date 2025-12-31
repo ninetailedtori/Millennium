@@ -15,6 +15,7 @@ body:
     - label: My issue is not caused by a plugin
       required: true
 - type: dropdown
+  id: category
   attributes:
     label: Bug Category
     description: What type of bug is this?
@@ -51,6 +52,7 @@ body:
   validations:
     required: true
 - type: dropdown
+  id: os
   attributes:
     label: Operating System
     options:
