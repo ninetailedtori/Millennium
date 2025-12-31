@@ -1,7 +1,7 @@
 name: Bug Report
 description: Create a bug report to help us find and fix bugs!
-title: "[Bug]"
-labels: [bug]
+title: "[Bug]: "
+labels: [bug, needs triage]
 body:
 - type: checkboxes
   attributes:
@@ -13,6 +13,19 @@ body:
     - label: My issue is not caused by a theme
       required: true
     - label: My issue is not caused by a plugin
+      required: true
+- type: dropdown
+  attributes:
+    label: Bug Category
+    description: What type of bug is this?
+    options:
+      - Aesthetic/UI Bug (Something isn't looking quite right)
+      - Functional Bug (Something isn't working as expected)
+      - Documentation Bug (Something isn't clear or correct in the documentation)
+      - Security Bug (Something is broken that could lead to a security vulnerability)
+      - Performance Bug (Something is slowing down or not working as expected)
+      - Other Bug (Something that doesn't fall under the above)
+    validations:
       required: true
 - type: textarea
   attributes:
@@ -28,7 +41,7 @@ body:
     required: true
 - type: textarea
   attributes:
-    label: Steps To Reproduce
+    label: Steps to Reproduce
     description: Steps to reproduce the behavior.
     placeholder: |
       1. In this environment...
@@ -45,6 +58,13 @@ body:
       - Linux
   validations:
     required: true
+- type: input
+  attributes:
+    label: Version
+    description: What version of Millennium are you running?
+    placeholder: v0.x.x
+    validations:
+      required: true
 - type: textarea
   attributes:
     label: Anything else?

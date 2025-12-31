@@ -1,7 +1,7 @@
 name: Submit a Theme
 description: Submit a theme to be added to the website
-title: "[Submission]"
-labels: [enhancement]
+title: "[Submission]: "
+labels: [theme]
 body:
 - type: checkboxes
   attributes:
@@ -16,5 +16,3 @@ body:
     description: Provide the GitHub URL of the repository to be considered. 
   validations:
     required: true
-  validations:
-    required: false
