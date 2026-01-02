@@ -5,7 +5,7 @@ pull request template. If you don't see your PR type listed, please create a new
 any other information/support, please contact us on our Discord server in the #developing channel.
 
 If you're looking for ideas on how to contribute healthily, check out
-our [Contributing Guide](https://github.com/SteamClientHomebrew/Millennium/blob/master/CONTRIBUTING.md)!
+our [Contributing Guide](../CONTRIBUTING.md)!
 
 ## Are you...
 
